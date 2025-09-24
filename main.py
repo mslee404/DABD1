@@ -19,7 +19,7 @@ app.add_middleware(
 
 def load_cards():
     try:
-        with open(DATA_FILE, "r") as file:
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
         return []

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <title>Flashcards</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="container">
+            <!-- <h1> ‎⋆ ˚｡⋆ʚ🎀ɞ⋆ ˚｡⋆</h1> -->
+            <h1>✿ ⋆｡ ﾟ ☁︎｡⋆｡ ﾟ ☾ ﾟ ｡⋆</h1>
             <h1>My Flashcards</h1>
+            <div class="add-card">
+                <h2>Add a card</h2>
+                <input type="text" id="addSide1" placeholder="Question">
+                <input type="text" id="addSide2" placeholder="Answer">
+                <button id="addCardBtn" type="button">Add Card</button>
+            </div>
+            <div id="cards"></div>
         </div>
-        <div class="add-card">
-            <h2>Add a card</h2>
-            <input type="text" id="addSide1" placeholder="Question">
-            <input type="text" id="addSide2" placeholder="Answer">
-            <button id="addCardBtn" type="button">Add Card</button>
-        </div>
-        <div id="cards"></div>
         <script src="script.js"></script>
     </body>
 </html>

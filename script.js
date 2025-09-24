@@ -1,4 +1,7 @@
 async function loadFlashcards() {
+    const colors = ["#9eccf0", "#f5c8c4", "#f59c9a", "#ffbe98", "#ffe7ab", "#c5dba9"];
+    let col = 0;
+
     const response = await fetch("http://127.0.0.1:8000/cards");
     const cards = await response.json();
   
@@ -8,6 +11,8 @@ async function loadFlashcards() {
     cards.forEach(card => {
         const div = document.createElement("div");
         div.className = "card";
+        div.style.backgroundColor = colors[col];
+        col = (col + 1) % colors.length;
     
         const side1 = document.createElement("div");
         side1.className = "side1";
@@ -55,7 +60,7 @@ async function loadFlashcards() {
             await fetch(`http://127.0.0.1:8000/card/${card.id}`, {
                 method: 'PUT',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json; charset=UTF-8"
                 }, body: JSON.stringify({
                     side1: edit_side1,
                     side2: edit_side2
@@ -82,7 +87,7 @@ document.getElementById("addCardBtn").addEventListener("click", async () => {
     await fetch(`http://127.0.0.1:8000/card`, {
         method: 'POST',
         headers: {
-            "Content-type": "application/json"
+            "Content-type": "application/json; charset=UTF-8"
             }, body: JSON.stringify({
                 side1: new_side1,
                 side2: new_side2
