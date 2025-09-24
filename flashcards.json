@@ -1,0 +1,17 @@
+[
+  {
+    "id": 0,
+    "side1": "What is the capital of France?",
+    "side2": "Paris"
+  },
+  {
+    "id": 1,
+    "side1": "What is 2 + 2?",
+    "side2": "4"
+  },
+  {
+    "id": 2,
+    "side1": "What is the largest planet in our solar system?",
+    "side2": "Jupiter"
+  }
+]
