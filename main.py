@@ -3,10 +3,19 @@ import json
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from pathlib import Path as path
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="HTTP Methods Demo API", version="1.0.0")
 
 DATA_FILE = path("flashcards.json")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def load_cards():
     try:
@@ -67,8 +76,8 @@ def create_card(card: Card):
     write_data(cards)
     return new_card
 
-@app.patch("/card/{card_id}")
-def partial_update_card(card_id: int, card_update: CardUpdate):
+@app.put("/card/{card_id}")
+def update_card(card_id: int, card_update: CardUpdate):
     cards = load_cards()
     
     for card in cards:
